@@ -5,84 +5,8 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
  <title>Decode Her Heart - Visual Novel</title>
  <link rel="stylesheet" href="style.css">
- 
- <!-- CSS Tambahan untuk Pop-up Maintenance -->
- <style>
- .maintenance-overlay {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background: rgba(0, 0, 0, 0.4); /* Menggelapkan background sedikit agar pop-up fokus */
- backdrop-filter: blur(3px); /* Efek blur estetik pada game di belakangnya */
- z-index: 9999; /* Memastikan berada di paling depan agar tombol game tidak bisa diklik */
- display: flex;
- justify-content: center;
- align-items: center;
- }
-
- .maintenance-box {
- background: rgba(20, 15, 30, 0.9); /* Warna gelap transparan senada game */
- border: 2px solid #ff4a7d; /* Border pink/neon khas game VN */
- border-radius: 12px;
- padding: 25px 35px;
- text-align: center;
- max-width: 400px;
- width: 85%;
- box-shadow: 0 0 20px rgba(255, 74, 125, 0.4);
- color: #ffffff;
- font-family: sans-serif;
- animation: popIn 0.3s ease-out;
- }
-
- .maintenance-box h2 {
- margin: 0 0 10px 0;
- color: #ff4a7d;
- font-size: 22px;
- text-transform: uppercase;
- letter-spacing: 1px;
- }
-
- .maintenance-box p {
- margin: 0;
- font-size: 15px;
- line-height: 1.5;
- color: #e0e0e0;
- }
-
- .maintenance-icon {
- font-size: 35px;
- margin-bottom: 8px;
- display: inline-block;
- animation: spin 4s linear infinite;
- }
-
- @keyframes popIn {
- 0% { transform: scale(0.9); opacity: 0; }
- 100% { transform: scale(1); opacity: 1; }
- }
-
- @keyframes spin {
- 100% { transform: rotate(360deg); }
- }
- </style>
 </head>
 <body>
-
- <!-- ========================================================== -->
- <!-- KOTAK POP-UP MAINTENANCE (MENGUNCI GAME DI BELAKANGNYA) -->
- <!-- Ubah style="display: flex;" untuk mengaktifkan maintenance -->
- <!-- Ubah style="display: none;" jika maintenance sudah selesai -->
- <!-- ========================================================== -->
- <div id="maintenanceOverlay" class="maintenance-overlay" style="display: flex;">
- <div class="maintenance-box">
- <div class="maintenance-icon">⚙️</div>
- <h2>Server Maintenance</h2>
- <p>Game sedang dalam pembaruan sistem/update cerita baru. Sementara waktu game tidak dapat dimainkan. Mohon kembali lagi nanti!</p>
- </div>
- </div>
- <!-- ========================================================== -->
 
  <div class="particle-container" id="particleContainer"></div>
 
@@ -180,17 +104,13 @@
  <script src="story/episode1.js"></script>
  <script src="story/episode2.js"></script>
  <script src="js/save.js"></script>
- <script src="scrit.js"></script>
+ <script src="script.js"></script>
 
  <script>
  window.addEventListener("DOMContentLoaded", () => {
  const urlParams = new URLSearchParams(window.location.search);
  const targetEp = urlParams.get('ep');
  
- // Pengaman tambahan agar cerita otomatis tidak ter-trigger saat maintenance aktif
- const isMaintenance = document.getElementById('maintenanceOverlay').style.display === 'flex';
- if (isMaintenance) return;
-
  if (targetEp && typeof game !== 'undefined') {
  if (targetEp === "episode1") {
  game.startNewGame();
