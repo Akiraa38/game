@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Pilih Episode - Decode Her Heart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .episode-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            z-index: 5;
+            position: relative;
+        }
+        .episode-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+        .episode-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+        .episode-card:hover {
+            border-color: #ff758c;
+            background: linear-gradient(90deg, rgba(255,117,140,0.15), rgba(255,126,179,0.15));
+            transform: translateY(-3px);
+        }
+        .ep-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff758c;
+            min-width: 50px;
+        }
+        .ep-details h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .ep-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .back-to-menu {
+            margin-top: 40px;
+            width: auto;
+            padding: 10px 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="particle-container" id="particleContainer"></div>
+    <div class="menu-overlay"></div>
+
+    <div class="episode-container">
+        <h1 class="game-title" style="text-align: center; line-height: 1.2;">Pilih Cerita</h1>
+        <p class="game-subtitle">Silakan pilih tahapan cerita yang ingin dituju</p>
+
+        <div class="episode-list">
+            <a href="index.html?ep=episode1" class="episode-card glass">
+                <div class="ep-number">01</div>
+                <div class="ep-details">
+                    <h3>Episode 1: Pertemuan Awal</h3>
+                    <p>Awal mula kisah Vanitas bertemu Clara.</p>
+                </div>
+            </a>
+
+            <a href="index.html?ep=episode2" class="episode-card glass">
+                <div class="ep-number">02</div>
+                <div class="ep-details">
+                    <h3>Episode 2: Lorong Sekolah</h3>
+                    <p>Menuju ke rungan kelas.
+                </div>
+            </a>
+        </div>
+
+        <button class="btn secondary-btn back-to-menu" onclick="window.location.href='index.html'">Kembali</button>
+    </div>
+    <script src="js/save.js"</script>
+    <script src="script.js"</script>
+</body>
+</html>
